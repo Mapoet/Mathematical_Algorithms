@@ -23,6 +23,7 @@ namespace TNNA{
         return r;
     }
     template<class Cell>
+<<<<<<< HEAD
     tensor<Cell> dot(const tensor<Cell>& a,const tensor<Cell>& b,const std::valarray<size_t> &adxs,const std::valarray<size_t>&bdxs){
         tensor<Cell> r=tensor<Cell>();
         if(bdxs!=adxs)return r;
@@ -37,6 +38,43 @@ namespace TNNA{
         tensor<Cell> r=tensor<Cell>();
         size_t as=ia.size();
         if(as!=ib.size())return r;
+=======
+    tensor<Cell> dot(const tensor<Cell>& a,const tensor<Cell>& b,const std::valarray<size_t>& adxs,const std::valarray<size_t>& bdxs){
+        tensor<tensor<Cell>> s =tensor<tensor<Cell>>();
+        tensor<Cell> r=tensor<Cell>();
+        size_t as=adxs.size();
+        if(as!=bdxs.size())return tensor<Cell>();
+        r.each(0)=0;
+        return r;
+    }
+    template<class Cell>
+    tensor<Cell> idot(const tensor<Cell>& a,const tensor<Cell>& b,const std::valarray<size_t>& adxs,const std::valarray<size_t>& bdxs){
+        tensor<tensor<Cell>> s =tensor<tensor<Cell>>();
+        s({})({})=0;
+        tensor<Cell>  r  = tensor<Cell>();
+        return r;
+    }
+    //Function: Cell name(tensor<Cell> a);
+    template<class Cell,class Function>
+    tensor<Cell> contraction(const tensor<Cell>& a,const std::valarray<size_t> adxs,const Function&func){
+        tensor<tensor<Cell>> s =tensor<tensor<Cell>>();
+        s({})({})=0;
+        tensor<Cell>  r  = tensor<Cell>();
+        return r;
+    }
+    //Function: tensor<Cell> name(tensor<Cell> a);
+    template<class Cell,class Function>
+    tensor<Cell> mapping(const tensor<Cell>& a,const std::valarray<size_t> cdxs,const Function&func){
+        tensor<tensor<Cell>> s =tensor<tensor<Cell>>();
+        s({})({})=0;
+        tensor<Cell>  r  = tensor<Cell>();
+        return r;
+    }
+    //Function: Cell name(Cell a, Cell b);
+    template<class Cell,class Function>
+    tensor<Cell> product(const tensor<Cell>& a,const tensor<Cell>& b,const Function&func){
+        tensor<Cell> r=tensor<Cell>();
+>>>>>>> upate Algo
         return r;
     }
     
