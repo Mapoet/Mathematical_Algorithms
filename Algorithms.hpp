@@ -23,7 +23,7 @@ namespace TNNA{
         return r;
     }
     template<class Cell>
-<<<<<<< HEAD
+//<<<<<<< HEAD
     tensor<Cell> dot(const tensor<Cell>& a,const tensor<Cell>& b,const std::valarray<size_t> &adxs,const std::valarray<size_t>&bdxs){
         tensor<Cell> r=tensor<Cell>();
         if(bdxs!=adxs)return r;
@@ -38,7 +38,7 @@ namespace TNNA{
         tensor<Cell> r=tensor<Cell>();
         size_t as=ia.size();
         if(as!=ib.size())return r;
-=======
+//=======
     tensor<Cell> dot(const tensor<Cell>& a,const tensor<Cell>& b,const std::valarray<size_t>& adxs,const std::valarray<size_t>& bdxs){
         tensor<tensor<Cell>> s =tensor<tensor<Cell>>();
         tensor<Cell> r=tensor<Cell>();
@@ -74,7 +74,7 @@ namespace TNNA{
     template<class Cell,class Function>
     tensor<Cell> product(const tensor<Cell>& a,const tensor<Cell>& b,const Function&func){
         tensor<Cell> r=tensor<Cell>();
->>>>>>> upate Algo
+//>>>>>>> upate Algo
         return r;
     }
     
