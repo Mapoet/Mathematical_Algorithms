@@ -23,10 +23,33 @@ namespace TNNA{
         return r;
     }
     template<class Cell>
-//<<<<<<< HEAD
+//
+//  inner processing
     tensor<Cell> dot(const tensor<Cell>& a,const tensor<Cell>& b,const std::valarray<size_t> &adxs,const std::valarray<size_t>&bdxs){
         tensor<Cell> r=tensor<Cell>();
-        if(bdxs!=adxs)return r;
+        auto ids=bdxs.size();
+        if(ids!=adxs.size())return r;
+        auto as=a.shape();
+        auto bs=b.shape();
+        auto an=a.size();
+        auto bn=b.size();
+        std::valarray<size_t> abs(as.size()+bs.size()-2*adxs.size()),ais(adxs.size()),bis(bdxs.size());
+        r.resize(abs);
+        for(size_t i=0;i<ids;i++)
+            if(as[adxs[i]]!=bs[bdxs[i]])
+            return r;
+        for(size_t i=0;i<an;i++)
+        for(size_t j=0;j<bn;j++){
+            auto ai=tensor<Cell>::loc2idxs(i,as,an);
+            auto bi=tensor<Cell>::loc2idxs(j,bs,bn);
+            //for(size_t k=0;k<ids;i++)
+            //{
+            //    ais[k]=ai[adxs[k]];
+            //    bis[k]=bi[bdxs[k]];
+            //}
+            r[abs]=r[abs]+a.each(i)*b.each(j);
+
+        }
         return r;
     }
     // const std::valarray<int> &adxs with idxs<0, need caculating
@@ -38,7 +61,7 @@ namespace TNNA{
         tensor<Cell> r=tensor<Cell>();
         size_t as=ia.size();
         if(as!=ib.size())return r;
-//=======
+//  
     tensor<Cell> dot(const tensor<Cell>& a,const tensor<Cell>& b,const std::valarray<size_t>& adxs,const std::valarray<size_t>& bdxs){
         tensor<tensor<Cell>> s =tensor<tensor<Cell>>();
         tensor<Cell> r=tensor<Cell>();

@@ -1,7 +1,9 @@
 
 
 #include <iostream>
+#include <globjects/globjects.h>
 #include "Algorithms.hpp"
+
 int main(int argc,char**argv){
     TNNA::tensor<double> a({3,2},{0.5,0.2,0.3,1.5,2.3,4.6}),b({3,2},{1,2,3,4,5,6});
     auto k=TNNA::cdot(a,b,{{0,0}},{{0,0}});
